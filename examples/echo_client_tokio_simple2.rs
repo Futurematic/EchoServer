@@ -1,4 +1,5 @@
-use std::io::prelude::*;
+// use std::io::prelude::*;
+use std::io::{Read, Write};
 use tokio::net::TcpStream;
 
 // const ECHO_SERVER_ADDRESS: &str = "localhost:1234";
@@ -8,7 +9,7 @@ const ECHO_SERVER_ADDRESS: &str = "127.0.0.1:1234";
 async fn main(){
     //connection
     println!("connecting to {}", ECHO_SERVER_ADDRESS);
-    if let Ok(mut stream) = TcpStream::connect(ECHO_SERVER_ADDRESS).await{
+    if let Ok(stream) = TcpStream::connect(ECHO_SERVER_ADDRESS).await{
         // connected
         println!("connected to echo server {}:{}", 
             stream.local_addr().unwrap().ip(),
