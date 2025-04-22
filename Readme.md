@@ -92,6 +92,11 @@ async fn main(){
 }
 ```
 
+
+Obigen code erweitere ich um die Write / Read Funktionen und muss auch, entgegen dem Beispiel aus dem Video, nach dem stream.write_all auch die stream.shutdown Methode einbauen
+echo_client_tokio_simple3.rs
+
+
 ```rust
 // use std::io::prelude::*;
 use tokio::io::{AsyncWriteExt,AsyncReadExt};

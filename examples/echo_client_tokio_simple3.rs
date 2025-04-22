@@ -3,7 +3,7 @@ use tokio::io::{AsyncWriteExt,AsyncReadExt};
 use tokio::{net::TcpStream};
 
 // const ECHO_SERVER_ADDRESS: &str = "localhost:1234";
-const ECHO_SERVER_ADDRESS: &str = "127.0.0.1:1234";
+const ECHO_SERVER_ADDRESS: &str = "127.0.0.1:8000";
 
 #[tokio::main]
 async fn main(){

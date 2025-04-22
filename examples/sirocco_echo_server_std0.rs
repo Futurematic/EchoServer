@@ -1,7 +1,7 @@
 use std::net::TcpListener;
 
 // const
-const SIROCCO_SERVER_ADDRESS: &str = "127.0.0.1:8000"^;
+const SIROCCO_SERVER_ADDRESS: &str = "127.0.0.1:8000";
 
 fn main(){
     // start the server
@@ -11,14 +11,8 @@ fn main(){
     println!("Server listening on {}", SIROCCO_SERVER_ADDRESS);
     // accept incoming connections
     for stream in listener.incoming() {
-        match stream {
-            Ok(stream) => {
-                println!("New connection from {}", stream.peer_addr().unwrap());
-                handle_client(stream);
-            }
-            Err(e) => {
-                eprintln!("Error accepting connection: {}", e);
-            }
-        }
+        let _stream = stream.unwrap();
+        println!("Connection established from");
     }
 }
+
