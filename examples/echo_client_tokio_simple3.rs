@@ -3,7 +3,7 @@ use tokio::io::{AsyncWriteExt,AsyncReadExt};
 use tokio::{net::TcpStream};
 
 // const ECHO_SERVER_ADDRESS: &str = "localhost:1234";
-const ECHO_SERVER_ADDRESS: &str = "127.0.0.1:8000";
+const ECHO_SERVER_ADDRESS: &str = "127.0.0.1:8001";
 
 #[tokio::main]
 async fn main(){
@@ -23,7 +23,7 @@ async fn main(){
         
         // read the result
         let mut buffer = [0;1024];
-        let len = stream.read(&mut buffer).await.unwrap();
+        let _len = stream.read(&mut buffer).await.unwrap();
         let message = String::from_utf8_lossy(&buffer);
         println!("received:{}", message);
     }
