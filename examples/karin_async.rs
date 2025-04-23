@@ -20,8 +20,14 @@ async fn main(){
     // accept incoming connections
     loop {
         let (stream,_) = listener.accept().await.unwrap();
+        // spawning thread to make async really work
+        tokio::spawn(async move {
+            handle_connection(stream).await;
+            // println!("Connection established from {}", stream.peer_addr().unwrap());
+        });
         // handle the connection in a separate thread
-        handle_connection(stream).await;
+        // handle_connection(stream).await;
+        // println!("Connection established from {}", stream.peer_addr().unwrap());
     }
 }
 
